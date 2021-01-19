@@ -11,9 +11,15 @@ export default  class PrefWorkspace extends React.Component {
     }
 
     getPreferences() {
-        restoreTradingSalesPreferences((data) => {
-            this.setState({ layoutConfig: data});
-        })
+        try {
+            restoreTradingSalesPreferences((data) => {
+                this.setState({ layoutConfig: data});
+            
+            })
+    
+        } catch(error) {
+            console.error(error)
+        }
     }
 
     savePreferences(layoutConfig) {
@@ -23,7 +29,7 @@ export default  class PrefWorkspace extends React.Component {
     }
 
     componentDidMount() {
-        this.getPreferences()
+       this.getPreferences()
     }
 
     onAdd() {

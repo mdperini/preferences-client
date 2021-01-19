@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './index.css';
 // import App from './App';
-import  { ThemeProvider } from './app/contexts/theme';
-import Nav from './app/components/Nav'
+import  { ThemeProvider } from './contexts/theme';
+import Nav from './components/Nav'
 
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 
-const PrefWorkspace = React.lazy(() => import('./app/components/PrefWorkspace'))
+const PrefWorkspace = React.lazy(() => import('./components/PrefWorkspace'))
 
 // React Component
 class App extends React.Component {
   state = {
+    
     theme: 'light',
     toggleTheme: () => {
       this.setState(({ theme }) => ({
@@ -41,13 +42,18 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  <App />,
+  document.getElementById('app')
+)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
+// // If you want to start measuring performance in your app, pass a function
+// // to log results (for example: reportWebVitals(console.log))
+// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// reportWebVitals();

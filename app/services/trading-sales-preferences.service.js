@@ -10,6 +10,9 @@ async function fetchPreferences(url = '', callbackFunc) {
         })
         .then(data => {
           callbackFunc(data);
+        }).catch((error) => {
+          callbackFunc(null);
+          console.error('Error:', error);
         });      
   }
 
@@ -20,6 +23,9 @@ async function fetchPreferences(url = '', callbackFunc) {
     })
     .then(success => {
       callbackFunc(success);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
     });      
   }
 
